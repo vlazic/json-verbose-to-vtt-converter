@@ -1,6 +1,6 @@
 # json-verbose-to-vtt-converter
 
-This Deno project converts JSON transcription files from the whisper modelto VTT (Web Video Text Tracks) format.
+This Deno project converts JSON transcription files from the whisper model to VTT (Web Video Text Tracks) format.
 
 ## Requirements
 
