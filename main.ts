@@ -1,8 +1,44 @@
-import { parseArgs } from "@std/cli/parse-args";
+// File: main.ts
+import { parseArgs } from "jsr:@std/cli@1.0.6/parse-args";
 import { WebVTTParser, WebVTTSerializer } from "npm:webvtt-parser-esm";
-import { TranscriptionResponse } from "./types.ts";
-import { jsonToVTT } from "./converter.ts";
 
+// Types
+interface Segment {
+  id: number;
+  start: number;
+  end: number;
+  text: string;
+}
+
+interface TranscriptionResponse {
+  task: string;
+  language: string;
+  duration: number;
+  text: string;
+  segments: Segment[];
+}
+
+// Utils
+function formatTime(seconds: number): string {
+  const pad = (num: number): string => num.toString().padStart(2, '0');
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.floor(seconds % 60);
+  const ms = Math.floor((seconds % 1) * 1000);
+  return `${pad(hours)}:${pad(minutes)}:${pad(secs)}.${ms.toString().padStart(3, '0')}`;
+}
+
+// Converter
+function jsonToVTT(json: TranscriptionResponse): string {
+  let vtt = "WEBVTT\n\n";
+  json.segments.forEach((segment) => {
+    vtt += `${formatTime(segment.start)} --> ${formatTime(segment.end)}\n`;
+    vtt += `${segment.text.trim()}\n\n`;
+  });
+  return vtt;
+}
+
+// Main function
 async function main() {
   const args = parseArgs(Deno.args, {
     string: ["input"],

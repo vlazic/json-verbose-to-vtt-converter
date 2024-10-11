@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Converts JSON transcription to VTT format",
   "imports": {
-    "@std/cli": "jsr:@std/cli@1.0.6",
-    "@std/assert": "jsr:@std/assert@0.218.2"
+    "@std/cli": "jsr:@std/cli@1.0.6"
   },
   "exports": {
     ".": "./main.ts"
