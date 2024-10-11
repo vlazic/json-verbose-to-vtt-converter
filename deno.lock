@@ -16,7 +16,6 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@0.218.2",
       "jsr:@std/cli@1.0.6"
     ]
   }
