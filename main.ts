@@ -27,8 +27,8 @@ async function main() {
 
     if (parsedVtt.errors.length > 0) {
       console.warn("VTT content has some issues:");
-      parsedVtt.errors.forEach((error, index) => {
-        console.warn(`${index + 1}. ${error.message}`);
+      parsedVtt.errors.forEach((error: unknown, index: number) => {
+        console.warn(`${index + 1}. ${String(error)}`);
       });
     } else {
       console.log("VTT content is valid.");
@@ -43,8 +43,8 @@ async function main() {
     await Deno.writeTextFile(outputFile, serializedVtt);
     console.log(`VTT file has been created: ${outputFile}`);
 
-  } catch (error) {
-    console.error("An error occurred:", error.message);
+  } catch (error: unknown) {
+    console.error("An error occurred:", error instanceof Error ? error.message : String(error));
     Deno.exit(1);
   }
 }
