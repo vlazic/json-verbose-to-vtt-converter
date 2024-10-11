@@ -1,0 +1,17 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/cli@1.0.6": "1.0.6",
+    "npm:webvtt-parser-esm@*": "1.1.0"
+  },
+  "jsr": {
+    "@std/cli@1.0.6": {
+      "integrity": "d22d8b38c66c666d7ad1f2a66c5b122da1704f985d3c47f01129f05abb6c5d3d"
+    }
+  },
+  "npm": {
+    "webvtt-parser-esm@1.1.0": {
+      "integrity": "sha512-RxNr/megqgmp3MabbsGoNVJVrx5LtpkzBgwcfOC2oNKK4cISNzcqyb3oRssoRipYULA9KvJbXAfcddIdUeI8LA=="
+    }
+  }
+}
