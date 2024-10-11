@@ -13,5 +13,11 @@
     "webvtt-parser-esm@1.1.0": {
       "integrity": "sha512-RxNr/megqgmp3MabbsGoNVJVrx5LtpkzBgwcfOC2oNKK4cISNzcqyb3oRssoRipYULA9KvJbXAfcddIdUeI8LA=="
     }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@0.218.2",
+      "jsr:@std/cli@1.0.6"
+    ]
   }
 }
